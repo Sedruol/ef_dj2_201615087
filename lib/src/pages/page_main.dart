@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'card_list_pages.dart';
 
 class Page_Main extends StatefulWidget{
   @override
@@ -46,7 +47,7 @@ class _Page_Main extends State<Page_Main>{
                     child: Column(
                       children: [
                         SizedBox(height: 30),
-                        Container(child: Text("Balance",style: TextStyle(fontSize: 25),textAlign: TextAlign.start,),),
+                        Container(child: Text("Balance",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),textAlign: TextAlign.start,),margin: EdgeInsets.only(right: 250),),
                         SizedBox(height: 20,),
                         Container(
                           alignment: Alignment.center,
@@ -56,8 +57,29 @@ class _Page_Main extends State<Page_Main>{
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Text('Rp.76.547.000,-',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24,fontStyle: FontStyle.italic),),
-                        )
+                          child: Text('Rp.76.547.000,-',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24,fontStyle: FontStyle.italic,),),
+                        ),
+                        SizedBox(height: 20),
+                        GestureDetector(
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 65,
+                            width: MediaQuery.of(context).size.width*0.9,
+                            decoration: BoxDecoration(
+                              color: Colors.blueAccent,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Text('TOP UP',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24,color: Colors.white),),
+                          ),
+                          onTap: (){
+                            Navigator.push(context,MaterialPageRoute(
+                                builder: (context) => CardsPageList()
+                            ));
+                          },
+                        ),
+                        SizedBox(height: 20,),
+                        Container(child: Text("QR Code",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),textAlign: TextAlign.start,),margin: EdgeInsets.only(right: 250),),
+                        Image(image: AssetImage('assets/images/image14.png'))
                       ],
                     ),
                   )
