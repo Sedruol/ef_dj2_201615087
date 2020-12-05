@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'card_list_pages.dart';
+import 'card_list.dart';
 
 class Page_Main extends StatefulWidget{
   @override

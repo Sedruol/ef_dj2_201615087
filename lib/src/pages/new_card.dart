@@ -1,19 +1,19 @@
 import 'package:awesome_card/awesome_card.dart';
 import 'package:flutter/material.dart';
 
-class NewCardPage extends StatefulWidget {
+class NewCard extends StatefulWidget {
   @override
-  _NewCardPageState createState() => _NewCardPageState();
+  _NewCardState createState() => _NewCardState();
 }
 
-class _NewCardPageState extends State<NewCardPage> {
+class _NewCardState extends State<NewCard> {
 
   String cardHolderName = "";
-  String cardExpiry = "";
+  String dayExpiry = "";
   String cardNumber = "";
   String cvv = "";
-  String bankName = "";
-  bool showBackSide = false;
+  String nameBank = "";
+  bool visibleBackSide = false;
 
   TextEditingController cardHolderNameController = TextEditingController();
   TextEditingController cardExpiryController = TextEditingController();
@@ -30,9 +30,9 @@ class _NewCardPageState extends State<NewCardPage> {
   void initState() {
     focusNodeCVV.addListener(() {
       if(focusNodeCVV.hasFocus){
-        showBackSide = true;
+        visibleBackSide = true;
       } else{
-        showBackSide = false;
+        visibleBackSide = false;
       }
       setState(() {});
     });
@@ -52,12 +52,12 @@ class _NewCardPageState extends State<NewCardPage> {
                 SizedBox(height: 20,),
                 CreditCard(
                     cardHolderName: cardHolderName,
-                    cardExpiry: cardExpiry,
+                    cardExpiry: dayExpiry,
                     cardNumber: cardNumber,
                     cvv: cvv,
                     showShadow: true,
-                    showBackSide: showBackSide,
-                    bankName: bankName,
+                    showBackSide: visibleBackSide,
+                    bankName: nameBank,
                     frontBackground: Container(color: Colors.blue),
                     backBackground: CardBackgrounds.white),
                 SizedBox(height: 20,),
@@ -66,7 +66,7 @@ class _NewCardPageState extends State<NewCardPage> {
                     onChanged: (text){
                       setState(() {
                         cardHolderName = text;
-                        showBackSide = false;
+                        visibleBackSide = false;
                       });
                     },
                     textInputAction: TextInputAction.next,
@@ -84,8 +84,8 @@ class _NewCardPageState extends State<NewCardPage> {
                     focusNode: focusNodeCardExpiry,
                     onChanged: (text){
                       setState(() {
-                        cardExpiry = text;
-                        showBackSide = false;
+                        dayExpiry = text;
+                        visibleBackSide = false;
                       });
                     },
                     textInputAction: TextInputAction.next,
@@ -104,7 +104,7 @@ class _NewCardPageState extends State<NewCardPage> {
                     onChanged: (text){
                       setState(() {
                         cardNumber = text;
-                        showBackSide = false;
+                        visibleBackSide = false;
                       });
                     },
                     textInputAction: TextInputAction.next,
@@ -123,7 +123,7 @@ class _NewCardPageState extends State<NewCardPage> {
                     onChanged: (text){
                       setState(() {
                         cvv = text;
-                        showBackSide = true;
+                        visibleBackSide = true;
                       });
                     },
                     textInputAction: TextInputAction.next,
@@ -133,7 +133,7 @@ class _NewCardPageState extends State<NewCardPage> {
                     maxLength: 4,
                     decoration: InputDecoration(
                       counterText: "",
-                      labelText: 'Cvv',
+                      labelText: 'CVV',
                     )
                 ),
                 SizedBox(height: 20,),
@@ -141,8 +141,8 @@ class _NewCardPageState extends State<NewCardPage> {
                     focusNode: focusNodeBankName,
                     onChanged: (text){
                       setState(() {
-                        bankName = text;
-                        showBackSide = false;
+                        nameBank = text;
+                        visibleBackSide = false;
                       });
                     },
                     style: TextStyle(

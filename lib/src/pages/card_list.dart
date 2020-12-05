@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ef_dj2_201615087/src/models/credit_card_model.dart';
-import 'package:ef_dj2_201615087/src/pages/new_card_page.dart';
+import 'package:ef_dj2_201615087/src/models/credit_card.dart';
+import 'package:ef_dj2_201615087/src/pages/new_card.dart';
 import 'package:ef_dj2_201615087/src/utils/utils.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 
@@ -15,10 +15,10 @@ class _CardsPageListState extends State<CardsPageList> {
   @override
   void initState() {
     cards = new List<CreditCard>();
-    cards.add(new CreditCard(name: 'MasterCard',imagePath: 'image10'));
-    cards.add(new CreditCard(name: 'Visa',imagePath: 'image11'));
-    cards.add(new CreditCard(name: 'JCB',imagePath: 'image12'));
-    cards.add(new CreditCard(name: 'American Express',imagePath: 'image13'));
+    cards.add(new CreditCard(name: 'MasterCard', pathIMG: 'image10'));
+    cards.add(new CreditCard(name: 'Visa', pathIMG: 'image11'));
+    cards.add(new CreditCard(name: 'JCB', pathIMG: 'image12'));
+    cards.add(new CreditCard(name: 'American Express', pathIMG: 'image13'));
     super.initState();
   }
 
@@ -85,7 +85,7 @@ class _CardsPageListState extends State<CardsPageList> {
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           itemBuilder: (context,i){
-                            return CreditCardModel(name: cards[i].name,imagePath: cards[i].imagePath);
+                            return ModelCreditCard(name: cards[i].name, pathIMG: cards[i].pathIMG);
                           },
                         ),
                         SizedBox(height: 20),
@@ -102,7 +102,7 @@ class _CardsPageListState extends State<CardsPageList> {
                           ),
                           onTap: (){
                             Navigator.push(context,MaterialPageRoute(
-                                builder: (context) => NewCardPage()
+                                builder: (context) => NewCard()
                             ));
                           },
                         )

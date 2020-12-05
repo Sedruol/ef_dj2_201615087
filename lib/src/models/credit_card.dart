@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class CreditCard{
   String name;
-  String imagePath;
-  CreditCard({this.name,this.imagePath});
+  String pathIMG;
+  CreditCard({this.name,this.pathIMG});
 }
 
-class CreditCardModel extends StatelessWidget{
+class ModelCreditCard extends StatelessWidget{
   final String name;
-  final String imagePath;
-  const CreditCardModel({Key key, this.name, this.imagePath}) : super(key: key);
+  final String pathIMG;
+  const ModelCreditCard({Key key, this.name, this.pathIMG}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +26,7 @@ class CreditCardModel extends StatelessWidget{
             Row(
               children: [
                 SizedBox(width: 30),
-                Image(image: AssetImage("assets/images/${imagePath}.png")),
+                Image(image: AssetImage("assets/images/${pathIMG}.png")),
                 SizedBox(width: 10),
                 Text(name,style: TextStyle(fontWeight: FontWeight.bold),)
               ],
